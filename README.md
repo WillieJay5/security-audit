@@ -5,7 +5,7 @@ This repository provides automated scripts and reports for auditing a Debian 12 
 
 ## 📌 Features
 - **System Security Scan** (Lynis)
-- **Network Vulnerability Scan** (Nmap, OpenVAS)
+- **Network Vulnerability Scan** (Nmap)
 - **Malware & Rootkit Detection** (ClamAV, OSSEC)
 - **Web Security Testing** (Nikto)
 
@@ -51,17 +51,12 @@ sudo apt install -y lynis
 sudo lynis audit system | tee reports/system-audit.log
 echo "✅ System audit completed! Log saved to reports/system-audit.log"
 ```
-🌐 network_scan.sh (Nmap & OpenVAS)
+🌐 network_scan.sh (Nmap)
 ```bash
 #!/bin/bash
 echo "🔍 Running Nmap scan..."
 sudo apt install -y nmap
-nmap -sV -A YOUR_SERVER_IP | tee reports/network-scan.log
-
-echo "🚨 Running OpenVAS vulnerability scan..."
-sudo apt install -y openvas
-sudo gvm-start
-echo "Visit https://localhost:9392 to review OpenVAS scan results."
+nmap -sV --script=vuln 192.168.1.55 | tee reports/network-scan.log
 ```
 
 🦠 malware_scan.sh (ClamAV & OSSEC)
@@ -93,37 +88,6 @@ configs/*
 !README.md
 ```
 
-## 🚀 GitHub Actions (Optional)
-To automate the audit periodically, use a GitHub Actions workflow:
-.github/workflows/audit.yml
-```yaml
-name: Security Audit
-on:
-  schedule:
-    - cron: '0 3 * * 7' # Runs every Sunday at 3 AM
-  workflow_dispatch: # Allow manual trigger
-
-jobs:
-  audit:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Run Security Audit
-        run: |
-          chmod +x scripts/*.sh
-          ./scripts/system_audit.sh
-          ./scripts/network_scan.sh
-          ./scripts/malware_scan.sh
-          ./scripts/web_scan.sh
-
-      - name: Upload Reports
-        uses: actions/upload-artifact@v3
-        with:
-          name: audit-reports
-          path: reports/
-```
 ## 🛠 Next Steps
 - ✅ Automate ufw hardening (configs/ufw-rules.conf)
 - ✅ Add real-time monitoring with OSSEC
