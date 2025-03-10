@@ -7,7 +7,6 @@ This repository provides automated scripts and reports for auditing a Debian 12 
 - **System Security Scan** (Lynis)
 - **Network Vulnerability Scan** (Nmap)
 - **Malware & Rootkit Detection** (ClamAV, OSSEC)
-- **Web Security Testing** (Nikto)
 
 ## 🛠 Setup
 Clone the repository and install dependencies:
@@ -20,7 +19,7 @@ chmod +x scripts/*.sh
 ## 🔍 Usage
 Run All Security Audits:
 ```bash
-./scripts/system_audit.sh && ./scripts/network_scan.sh && ./scripts/malware_scan.sh && ./scripts/web_scan.sh
+./scripts/system_audit.sh && ./scripts/network_scan.sh && ./scripts/malware_scan.sh
 ```
 Reports are sabved in the reports/ folder
 
@@ -29,13 +28,12 @@ Check audit logs in
 - reports/system-audit.log
 - reports/network-scan.log
 - reports/malware-scan.log
-- reports/web-security.log
 
 ## 🛡 Hardening Guide
 - 🔥 Secure SSH
 - 🔒 Restrict Firewall Rules
 - 🚀 Automate updates with unattended-upgrades
-- 🕵️ Monitor logs with OSSEC
+- 🕵️ Monitor logs with Grafana + Loki (Unimlemented)
 - Change YOUR_SERVER_IP to your actual server ip
 ```yaml
 
@@ -72,14 +70,6 @@ sudo apt install -y ossec-hids
 echo "Check OSSEC logs for real-time monitoring."
 ```
 
-🌎 web_scan.sh (Nikto Web Security Test)
-```bash
-#!/bin/bash
-echo "🌎 Running Nikto Web Vulnerability Scan..."
-sudo apt install -y nikto
-nikto -h http://YOUR_SERVER_IP | tee reports/web-security.log
-```
-
 🔒 .gitignore (Avoid Storing Sensitive Logs)
 ```plaintext
 # Ignore logs and configs
@@ -90,6 +80,6 @@ configs/*
 
 ## 🛠 Next Steps
 - ✅ Automate ufw hardening (configs/ufw-rules.conf)
-- ✅ Add real-time monitoring with OSSEC
+- ✅ Add real-time monitoring with Grifana + Loki
 - ✅ Use GitHub Secrets for sensitive data
-- ✅ Add notificatoins with Slack
+- ✅ Add notificatoins with SlacK
