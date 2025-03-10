@@ -1,10 +1,3 @@
-
----
-
-### **📂 scripts/** (Automation Scripts)
-
-#### **🖥 `system_audit.sh` (Lynis Security Check)**
-```bash
 #!/bin/bash
 echo "🛡 Running Lynis Security Audit..."
 sudo apt install -y lynis
