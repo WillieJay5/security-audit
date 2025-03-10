@@ -21,7 +21,7 @@ Run All Security Audits:
 ```bash
 ./scripts/system_audit.sh && ./scripts/network_scan.sh && ./scripts/malware_scan.sh
 ```
-Reports are sabved in the reports/ folder
+Reports are saved in the reports/ folder
 
 ## 📋 Results
 Check audit logs in
