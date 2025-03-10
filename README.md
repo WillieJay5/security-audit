@@ -12,6 +12,6 @@ This repository provides automated scripts and reports for auditing a Debian 12 
 ## 🛠 Setup
 Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/YOUR_USERNAME/security-audit.git
+git clone https://github.com/WillieJay5/security-audit.git
 cd security-audit
 chmod +x scripts/*.sh
