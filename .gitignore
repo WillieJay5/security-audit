@@ -1,1 +1,4 @@
-
+# Ignore logs and configs
+reports/*
+configs/*
+!README.md
