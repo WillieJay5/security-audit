@@ -76,14 +76,6 @@ sudo apt install -y ossec-hids
 echo "Check OSSEC logs for real-time monitoring."
 ```
 
-🔒 .gitignore (Avoid Storing Sensitive Logs)
-```plaintext
-# Ignore logs and configs
-reports/*
-configs/*
-!README.md
-```
-
 ## 🛠 Next Steps
 - ✅ Automate ufw hardening (configs/ufw-rules.conf)
 - ✅ Add real-time monitoring with Grifana + Loki
