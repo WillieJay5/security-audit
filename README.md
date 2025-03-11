@@ -1,12 +1,18 @@
 
 # 🛡 Debian 12 Security Audit Toolkit
 
-This repository provides automated scripts and reports for auditing a Debian 12 server.
+A Bash script designed to automate the process of auditing and hardening Linux systems by checking for common security vulnerabilities and misconfigurations.
 
 ## 📌 Features
 - **System Security Scan** (Lynis)
 - **Network Vulnerability Scan** (Nmap)
 - **Malware & Rootkit Detection** (ClamAV, OSSEC)
+
+## Prerequisites:
+
+- Bash shell
+- Root or sudo privileges
+- awk, grep, and netstat utilities
 
 ## 🛠 Setup
 Clone the repository and install dependencies:
@@ -83,3 +89,6 @@ configs/*
 - ✅ Add real-time monitoring with Grifana + Loki
 - ✅ Use GitHub Secrets for sensitive data
 - ✅ Add notificatoins with SlacK
+
+## Contributing:
+Contributions are welcome! Please fork the repository and submit a pull request with your improvements or fixes.
